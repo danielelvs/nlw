@@ -41,14 +41,15 @@ export function Room() {
   const { user } = useAuth();
   const [newQuestion, setNewQuestion] = useState("");
   const [questions, setQuestions] = useState<Questions[]>([]);
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
 
     // Once: ouve o evento apenas uma unica vez.
     // On: fica ouvindo
-    // toda vez o id mudar, executa a função dentro do once
-    roomRef.once("value", (room) => {
+    // toda vez o estado room mudar, executa a função dentro do once
+    roomRef.on("value", (room) => {
       const databaseRoom = room.val();
       const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
       const parsedQuestions = Object.entries(firebaseQuestions).map(
@@ -62,7 +63,9 @@ export function Room() {
           };
         }
       );
-      console.log(room.val());
+
+      setTitle(databaseRoom.title);
+      setQuestions(parsedQuestions);
     });
   }, [roomId]);
 
@@ -101,8 +104,8 @@ export function Room() {
 
       <main className="content">
         <div className="room-title">
-          <h1>Sala React</h1>
-          <span>4 perguntas</span>
+          <h1>Sala {title}</h1>
+          {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
         </div>
         <form onSubmit={handleSendNewQuestion}>
           <textarea
@@ -127,6 +130,8 @@ export function Room() {
             </Button>
           </div>
         </form>
+
+        {JSON.stringify(questions)}
       </main>
     </div>
   );
