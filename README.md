@@ -92,7 +92,7 @@ Ter o npm e yarn instalado:
 ## Contato
 
 - Daniele Leite
-  - danieleleite.vs@gmail.com
+  - danii.exe@gmail.com
   - [Linkedin]([linkedin-url])
 - Link do projeto: [https://github.com/danielelvs/nlw-6](https://github.com/danielelvs/nlw-6)
 
