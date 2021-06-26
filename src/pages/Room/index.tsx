@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react";
 import { useParams } from "react-router-dom";
-
 import { Button } from "../../components/Button/index";
 import { Question } from "../../components/Question/index";
 import { RoomCode } from "../../components/RoomCode/index";
@@ -8,7 +7,14 @@ import { useAuth } from "../../hooks/useAuth";
 import { useRoom } from "../../hooks/useRoom";
 import { database } from "../../services/firebase";
 import logoImg from "../../assets/images/logo.svg";
-import "./styles.scss";
+import {
+  RoomStyled,
+  RoomHeaderStyled,
+  RoomMainContentStyled,
+  RoomMainContentTitleStyled,
+  RoomMainContentFormStyled,
+  RoomMainContentQuestionsStyled,
+} from "./styled";
 
 type RoomParams = {
   id: string;
@@ -61,28 +67,28 @@ export function Room() {
   }
 
   return (
-    <div id="page-room">
-      <header>
+    <RoomStyled>
+      <RoomHeaderStyled>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
           <RoomCode code={roomId} />
         </div>
-      </header>
+      </RoomHeaderStyled>
 
-      <main className="content">
-        <div className="room-title">
+      <RoomMainContentStyled>
+        <RoomMainContentTitleStyled>
           <h1>Sala {title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
-        </div>
-        <form onSubmit={handleSendNewQuestion}>
+        </RoomMainContentTitleStyled>
+        <RoomMainContentFormStyled onSubmit={handleSendNewQuestion}>
           <textarea
             placeholder="O que você quer perguntar?"
             onChange={(event) => setNewQuestion(event.target.value)}
             value={newQuestion}
           />
-          <div className="form-footer">
+          <footer>
             {user ? (
-              <div className="user-info">
+              <div>
                 <img src={user.avatar} alt={user.name} />
                 <span>{user.name}</span>
               </div>
@@ -95,9 +101,9 @@ export function Room() {
             <Button type="submit" disabled={!user}>
               Enviar pergunta
             </Button>
-          </div>
-        </form>
-        <div className="question-list">
+          </footer>
+        </RoomMainContentFormStyled>
+        <RoomMainContentQuestionsStyled>
           {questions.map((question) => {
             return (
               <Question
@@ -139,8 +145,8 @@ export function Room() {
               </Question>
             );
           })}
-        </div>
-      </main>
-    </div>
+        </RoomMainContentQuestionsStyled>
+      </RoomMainContentStyled>
+    </RoomStyled>
   );
 }

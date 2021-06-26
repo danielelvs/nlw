@@ -6,7 +6,7 @@ import { Button } from "../../../components/Button/index";
 
 import illustrationImg from "../../../assets/images/illustration.svg";
 import logoImg from "../../../assets/images/logo.svg";
-import "../../Home/styles.scss";
+import { NewRoomStyled, NewRoomMainContentStyled } from "../styled";
 
 export function NewRoom() {
   const { user } = useAuth();
@@ -31,7 +31,7 @@ export function NewRoom() {
   }
 
   return (
-    <div id="page-auth">
+    <NewRoomStyled>
       <aside>
         <img
           src={illustrationImg}
@@ -41,7 +41,7 @@ export function NewRoom() {
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
       </aside>
       <main>
-        <div className="main-content">
+        <NewRoomMainContentStyled>
           <img src={logoImg} alt="Letmeask" />
           <h2>Crie uma nova sala</h2>
           <form onSubmit={handleCreateRoom}>
@@ -56,8 +56,8 @@ export function NewRoom() {
           <p>
             Quer entrar em uma sala existente? <Link to="/">Clique aqui</Link>
           </p>
-        </div>
+        </NewRoomMainContentStyled>
       </main>
-    </div>
+    </NewRoomStyled>
   );
 }

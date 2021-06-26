@@ -10,7 +10,13 @@ import logoImg from "../../../assets/images/logo.svg";
 import checkImg from "../../../assets/images/check.svg";
 import answerImg from "../../../assets/images/answer.svg";
 import deleteImg from "../../../assets/images/delete.svg";
-import "../styles.scss";
+import {
+  RoomStyled,
+  RoomHeaderStyled,
+  RoomMainContentStyled,
+  RoomMainContentTitleStyled,
+  RoomMainContentQuestionsStyled,
+} from "../styled";
 
 type RoomParams = {
   id: string;
@@ -48,8 +54,8 @@ export function AdminRoom() {
   }
 
   return (
-    <div id="page-room">
-      <header>
+    <RoomStyled>
+      <RoomHeaderStyled>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
           <div>
@@ -59,15 +65,13 @@ export function AdminRoom() {
             </Button>
           </div>
         </div>
-      </header>
-
-      <main className="content">
-        <div className="room-title">
+      </RoomHeaderStyled>
+      <RoomMainContentStyled>
+        <RoomMainContentTitleStyled>
           <h1>Sala {title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
-        </div>
-
-        <div className="question-list">
+        </RoomMainContentTitleStyled>
+        <RoomMainContentQuestionsStyled>
           {questions.map((question) => {
             return (
               <Question
@@ -105,8 +109,8 @@ export function AdminRoom() {
               </Question>
             );
           })}
-        </div>
-      </main>
-    </div>
+        </RoomMainContentQuestionsStyled>
+      </RoomMainContentStyled>
+    </RoomStyled>
   );
 }

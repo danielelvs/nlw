@@ -1,10 +1,14 @@
-.question {
+import styled from "styled-components";
+
+export const QuestionUserInfoStyled = styled.div``;
+
+export const QuestionStyled = styled.div`
   background: #fefefe;
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
 
-  & + .question {
+  & + & {
     margin-top: 8px;
   }
 
@@ -31,7 +35,7 @@
     align-items: center;
     margin-top: 24px;
 
-    .user-info {
+    ${QuestionUserInfoStyled} {
       display: flex;
       align-items: center;
 
@@ -79,4 +83,4 @@
       }
     }
   }
-}
+`;

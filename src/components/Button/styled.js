@@ -1,4 +1,6 @@
-.button {
+import styled from "styled-components";
+
+export const ButtonStyled = styled.button`
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
@@ -12,14 +14,14 @@
   transition: filter 0.2s;
   padding: 0 32px;
 
-  img {
-    margin-right: 8px;
-  }
-
   &.outlined {
     background: #fff;
     border: 1px solid #8350fd;
     color: #8350fd;
+  }
+
+  img {
+    margin-right: 8px;
   }
 
   &:not(:disabled):hover {
@@ -30,4 +32,4 @@
     opacity: 0.6;
     cursor: not-allowed;
   }
-}
+`;

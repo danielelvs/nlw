@@ -1,4 +1,10 @@
-#page-auth {
+import styled from "styled-components";
+
+export const HomeMainContentStyled = styled.div``;
+export const HomeSeparatorStyled = styled.div``;
+export const HomeCreateRoomStyled = styled.button``;
+
+export const HomeStyled = styled.div`
   display: flex;
   align-items: stretch;
   height: 100vh;
@@ -38,7 +44,7 @@
     justify-content: center;
   }
 
-  .main-content {
+  ${HomeMainContentStyled} {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -74,19 +80,19 @@
         width: 100%;
       }
     }
+  }
 
-    p {
-      font-size: 14px;
-      color: #737380;
-      margin-top: 16px;
+  p {
+    font-size: 14px;
+    color: #737380;
+    margin-top: 16px;
 
-      a {
-        color: #e559f9;
-      }
+    a {
+      color: #e559f9;
     }
   }
 
-  .create-room {
+  ${HomeCreateRoomStyled} {
     margin-top: 64px;
     height: 50px;
     border-radius: 8px;
@@ -109,7 +115,7 @@
     }
   }
 
-  .separator {
+  ${HomeSeparatorStyled} {
     font-size: 14px;
     color: #a8a8b3;
     margin: 32px 0;
@@ -132,4 +138,4 @@
       margin-left: 16px;
     }
   }
-}
+`;

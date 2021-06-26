@@ -8,7 +8,12 @@ import { Button } from "../../components/Button/index";
 import illustrationImg from "../../assets/images/illustration.svg";
 import logoImg from "../../assets/images/logo.svg";
 import googleIconImg from "../../assets/images/google-icon.svg";
-import "./styles.scss";
+import {
+  HomeStyled,
+  HomeMainContentStyled,
+  HomeCreateRoomStyled,
+  HomeSeparatorStyled,
+} from "./styled";
 
 export function Home() {
   const history = useHistory();
@@ -43,7 +48,7 @@ export function Home() {
   }
 
   return (
-    <div id="page-auth">
+    <HomeStyled>
       <aside>
         <img
           src={illustrationImg}
@@ -53,13 +58,13 @@ export function Home() {
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
       </aside>
       <main>
-        <div className="main-content">
+        <HomeMainContentStyled>
           <img src={logoImg} alt="Letmeask" />
-          <button onClick={handleCreateRoom} className="create-room">
+          <HomeCreateRoomStyled onClick={handleCreateRoom}>
             <img src={googleIconImg} alt="Logo do Google" />
             Cria sua sala com o Google
-          </button>
-          <div className="separator">ou entre em uma sala</div>
+          </HomeCreateRoomStyled>
+          <HomeSeparatorStyled>ou entre em uma sala</HomeSeparatorStyled>
           <form onSubmit={handleJoinRoom}>
             <input
               type="text"
@@ -69,8 +74,8 @@ export function Home() {
             />
             <Button type="submit">Entrar na sala</Button>
           </form>
-        </div>
+        </HomeMainContentStyled>
       </main>
-    </div>
+    </HomeStyled>
   );
 }

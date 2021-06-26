@@ -1,5 +1,16 @@
-#page-room {
-  header {
+import styled from "styled-components";
+import { HomeMainContentStyled, HomeStyled } from "../Home/styled";
+
+export const NewRoomStyled = styled(HomeStyled)``;
+export const NewRoomMainContentStyled = styled(HomeMainContentStyled)``;
+export const RoomHeaderStyled = styled.header``;
+export const RoomMainContentStyled = styled.main``;
+export const RoomMainContentTitleStyled = styled.div``;
+export const RoomMainContentFormStyled = styled.form``;
+export const RoomMainContentQuestionsStyled = styled.div``;
+
+export const RoomStyled = styled.div`
+  ${RoomHeaderStyled} {
     padding: 24px;
     border-bottom: 1px solid #e2e2e2;
 
@@ -25,11 +36,11 @@
     }
   }
 
-  main {
+  ${RoomMainContentStyled} {
     max-width: 800px;
     margin: 0 auto;
 
-    .room-title {
+    ${RoomMainContentTitleStyled} {
       margin: 32px 0 24px;
       display: flex;
       align-items: center;
@@ -51,7 +62,7 @@
       }
     }
 
-    form {
+    ${RoomMainContentFormStyled} {
       textarea {
         width: 100%;
         border: 0;
@@ -63,13 +74,13 @@
         min-height: 130px;
       }
 
-      .form-footer {
+      footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 16px;
 
-        .user-info {
+        div {
           display: flex;
           align-items: center;
 
@@ -105,8 +116,8 @@
       }
     }
 
-    .question-list {
+    ${RoomMainContentQuestionsStyled} {
       margin-top: 32px;
     }
   }
-}
+`;
