@@ -1,1 +1,9 @@
 react-modal
+
+ npm install -g firebase-tools
+ firebase login
+ firebase init
+
+
+npm run-script build
+firebase deploy
